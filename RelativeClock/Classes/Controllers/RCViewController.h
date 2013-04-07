@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCClockView.h"
 
-@interface RCViewController : UIViewController
+@interface RCViewController : UIViewController {
+  RCClockView *_clock;
+  NSTimer *_timer;
+}
 
 @end

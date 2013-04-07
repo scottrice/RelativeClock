@@ -23,6 +23,9 @@
 		E65F3DA51710C24500505EC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65F3D801710C24500505EC6 /* Foundation.framework */; };
 		E65F3DAD1710C24500505EC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E65F3DAB1710C24500505EC6 /* InfoPlist.strings */; };
 		E65F3DB01710C24500505EC6 /* RelativeClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E65F3DAF1710C24500505EC6 /* RelativeClockTests.m */; };
+		E65F3DC31710C30F00505EC6 /* RCClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65F3DC21710C30F00505EC6 /* RCClockView.m */; };
+		E66E1A971710E78F002698AB /* RCPulseView.h in Sources */ = {isa = PBXBuildFile; fileRef = E66E1A951710E78F002698AB /* RCPulseView.h */; };
+		E66E1A981710E78F002698AB /* RCPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E66E1A961710E78F002698AB /* RCPulseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +49,11 @@
 		E65F3D8C1710C24500505EC6 /* RelativeClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RelativeClock-Prefix.pch"; sourceTree = "<group>"; };
 		E65F3D8D1710C24500505EC6 /* RCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCAppDelegate.h; sourceTree = "<group>"; };
 		E65F3D8E1710C24500505EC6 /* RCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCAppDelegate.m; sourceTree = "<group>"; };
-		E65F3D901710C24500505EC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E65F3D921710C24500505EC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		E65F3D941710C24500505EC6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E65F3D961710C24500505EC6 /* RCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCViewController.h; sourceTree = "<group>"; };
-		E65F3D971710C24500505EC6 /* RCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCViewController.m; sourceTree = "<group>"; };
+		E65F3D901710C24500505EC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
+		E65F3D921710C24500505EC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images/Default@2x.png"; sourceTree = "<group>"; };
+		E65F3D941710C24500505EC6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
+		E65F3D961710C24500505EC6 /* RCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCViewController.h; path = Classes/Controllers/RCViewController.h; sourceTree = "<group>"; };
+		E65F3D971710C24500505EC6 /* RCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RCViewController.m; path = Classes/Controllers/RCViewController.m; sourceTree = "<group>"; };
 		E65F3D9A1710C24500505EC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RCViewController.xib; sourceTree = "<group>"; };
 		E65F3DA11710C24500505EC6 /* RelativeClockTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelativeClockTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65F3DA21710C24500505EC6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,6 +61,10 @@
 		E65F3DAC1710C24500505EC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E65F3DAE1710C24500505EC6 /* RelativeClockTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RelativeClockTests.h; sourceTree = "<group>"; };
 		E65F3DAF1710C24500505EC6 /* RelativeClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelativeClockTests.m; sourceTree = "<group>"; };
+		E65F3DC11710C30F00505EC6 /* RCClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCClockView.h; path = Classes/Views/RCClockView.h; sourceTree = "<group>"; };
+		E65F3DC21710C30F00505EC6 /* RCClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCClockView.m; path = Classes/Views/RCClockView.m; sourceTree = "<group>"; };
+		E66E1A951710E78F002698AB /* RCPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj; name = RCPulseView.h; path = Classes/Views/RCPulseView.h; sourceTree = "<group>"; };
+		E66E1A961710E78F002698AB /* RCPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPulseView.m; path = Classes/Views/RCPulseView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +124,9 @@
 		E65F3D841710C24500505EC6 /* RelativeClock */ = {
 			isa = PBXGroup;
 			children = (
+				E65F3DBB1710C27A00505EC6 /* Classes */,
 				E65F3D8D1710C24500505EC6 /* RCAppDelegate.h */,
 				E65F3D8E1710C24500505EC6 /* RCAppDelegate.m */,
-				E65F3D961710C24500505EC6 /* RCViewController.h */,
-				E65F3D971710C24500505EC6 /* RCViewController.m */,
-				E65F3D991710C24500505EC6 /* RCViewController.xib */,
 				E65F3D851710C24500505EC6 /* Supporting Files */,
 			);
 			path = RelativeClock;
@@ -130,6 +135,7 @@
 		E65F3D851710C24500505EC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E65F3D991710C24500505EC6 /* RCViewController.xib */,
 				E65F3D861710C24500505EC6 /* RelativeClock-Info.plist */,
 				E65F3D871710C24500505EC6 /* InfoPlist.strings */,
 				E65F3D8A1710C24500505EC6 /* main.m */,
@@ -158,6 +164,43 @@
 				E65F3DAB1710C24500505EC6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E65F3DBB1710C27A00505EC6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E65F3DBE1710C28E00505EC6 /* Models */,
+				E65F3DBD1710C28900505EC6 /* Controllers */,
+				E65F3DBC1710C28300505EC6 /* Views */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		E65F3DBC1710C28300505EC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E65F3DC11710C30F00505EC6 /* RCClockView.h */,
+				E65F3DC21710C30F00505EC6 /* RCClockView.m */,
+				E66E1A951710E78F002698AB /* RCPulseView.h */,
+				E66E1A961710E78F002698AB /* RCPulseView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E65F3DBD1710C28900505EC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E65F3D961710C24500505EC6 /* RCViewController.h */,
+				E65F3D971710C24500505EC6 /* RCViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E65F3DBE1710C28E00505EC6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +317,9 @@
 				E65F3D8B1710C24500505EC6 /* main.m in Sources */,
 				E65F3D8F1710C24500505EC6 /* RCAppDelegate.m in Sources */,
 				E65F3D981710C24500505EC6 /* RCViewController.m in Sources */,
+				E65F3DC31710C30F00505EC6 /* RCClockView.m in Sources */,
+				E66E1A971710E78F002698AB /* RCPulseView.h in Sources */,
+				E66E1A981710E78F002698AB /* RCPulseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +500,7 @@
 				E65F3DB51710C24500505EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E65F3DB61710C24500505EC6 /* Build configuration list for PBXNativeTarget "RelativeClockTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +509,7 @@
 				E65F3DB81710C24500505EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
