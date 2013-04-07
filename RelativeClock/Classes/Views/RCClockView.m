@@ -40,7 +40,12 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
       // Make the pulse as big as the clock. This will (hopefully) allow for
       // easier scale calculations
       _pulse = [[RCPulseView alloc] initWithFrame:[self rectForRadius:clockRadius]];
-      
+      _secondsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+      [_secondsLabel setTextAlignment:NSTextAlignmentCenter];
+      [_secondsLabel setBackgroundColor:[UIColor clearColor]];
+      [_secondsLabel setTextColor:[UIColor whiteColor]];
+      [_secondsLabel setCenter:[self center]];
+      [self addSubview:_secondsLabel];
       // These need to come after the _pulse initialization so that setRingColor
       // sets the color of _pulse as well
       [self setRingColor:[UIColor whiteColor]];
@@ -67,7 +72,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
   NSDateComponents *components = [cal components:(NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit) fromDate:date];
   _hours = [components hour];
   _minutes = [components minute];
-  _seconds = [components second];
+  [self setSeconds:[components second]];
   [self setNeedsDisplay];
 }
 
@@ -82,6 +87,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
     _seconds = _seconds % SECONDS_IN_MINUTE;
     [self incrementMinutes];
   }
+  [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
 }
 
 - (void)incrementMinutes {
@@ -103,6 +109,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
   _hours = hours;
   _minutes = minutes;
   _seconds = seconds;
+  [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
   [self setNeedsDisplay];
 }
 
@@ -118,6 +125,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 
 - (void)setSeconds:(NSUInteger)seconds {
   _seconds = seconds;
+  [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
   [self setNeedsDisplay];
 }
 

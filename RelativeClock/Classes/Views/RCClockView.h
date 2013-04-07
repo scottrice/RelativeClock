@@ -11,6 +11,7 @@
 
 @interface RCClockView : UIView {
   RCPulseView *_pulse;
+  UILabel *_secondsLabel;
 }
 
 // Increments the clock by 1 second
