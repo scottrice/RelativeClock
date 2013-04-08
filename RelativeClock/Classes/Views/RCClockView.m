@@ -188,7 +188,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 
 - (void)pulseFromRadius:(CGFloat)beginRadius toRadius:(CGFloat)endRadius baseline:(CGFloat)baseline completion:(void (^)(BOOL finished))completion {
   CGFloat beginScale = [self scaleForRadius:beginRadius];
-  CGFloat endScale = [self scaleForRadius:endRadius];
+  CGFloat endScale = [self scaleForRadius:endRadius-1];
   [_pulse setTransform:CGAffineTransformMakeScale(beginScale, beginScale)];
   [_pulse setHidden:NO];
   [UIView animateWithDuration:[self durationOfAnimationFrom:beginRadius to:endRadius baseline:baseline] animations:^{
