@@ -78,7 +78,6 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 
 - (void)tick {
   [self incrementSeconds];
-  [self setNeedsDisplay];
 }
 
 - (void)incrementSeconds {
@@ -89,6 +88,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
       [self incrementMinutes];
     }
     [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
+    [self setNeedsDisplay];
   }];
 }
 
@@ -99,6 +99,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
       _minutes = _minutes % MINUTES_IN_HOUR;
       [self incrementHours];
     }
+    [self setNeedsDisplay];
   }];
 }
 
@@ -108,6 +109,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
     if (_hours / HOURS_IN_DAY) {
       _hours = _hours % HOURS_IN_DAY;
     }
+    [self setNeedsDisplay];
   }];
 }
 
@@ -198,7 +200,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 }
 
 - (NSTimeInterval)durationOfAnimationFrom:(CGFloat)beginRadius to:(CGFloat)endRadius baseline:(CGFloat)baseline {
-  return (endRadius - beginRadius)/(baseline-beginRadius);
+  return ((endRadius - beginRadius)/(baseline-beginRadius) * .99);
 }
 
 - (CGFloat)scaleForRadius:(CGFloat)radius {

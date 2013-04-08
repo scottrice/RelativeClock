@@ -29,6 +29,7 @@
   // Draw the ring
   CGContextRef contextRef = UIGraphicsGetCurrentContext();
   CGContextSetStrokeColorWithColor(contextRef, _color.CGColor);
+  CGContextSetLineWidth(contextRef, 2);
   CGContextStrokeEllipseInRect(contextRef, [self bounds]);
 }
 
