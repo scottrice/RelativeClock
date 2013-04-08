@@ -82,9 +82,8 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 }
 
 - (void)incrementSeconds {
-  _seconds = _seconds + 1;
   [self pulseFromRadius:BASE toRadius:[self radiusForCurrentSeconds] baseline:secondsRadius completion:^(BOOL finished) {
-//    _seconds = _seconds + 1;
+    _seconds = _seconds + 1;
     if (_seconds / SECONDS_IN_MINUTE) {
       _seconds = _seconds % SECONDS_IN_MINUTE;
       [self incrementMinutes];
@@ -94,9 +93,8 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 }
 
 - (void)incrementMinutes {
-  _minutes = _minutes + 1;
   [self pulseFromRadius:secondsRadius+BORDER_WIDTH toRadius:[self radiusForCurrentMinutes] baseline:minutesRadius completion:^(BOOL finished) {
-//    _minutes = _minutes + 1;
+    _minutes = _minutes + 1;
     if (_minutes / MINUTES_IN_HOUR) {
       _minutes = _minutes % MINUTES_IN_HOUR;
       [self incrementHours];
@@ -105,9 +103,8 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 }
 
 - (void)incrementHours {
-  _hours = _hours + 1;
   [self pulseFromRadius:minutesRadius+BORDER_WIDTH toRadius:[self radiusForCurrentHours] baseline:clockRadius completion:^(BOOL finished){
-//    _hours = _hours + 1;
+    _hours = _hours + 1;
     if (_hours / HOURS_IN_DAY) {
       _hours = _hours % HOURS_IN_DAY;
     }
