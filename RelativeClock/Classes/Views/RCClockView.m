@@ -83,26 +83,35 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 
 - (void)incrementSeconds {
   _seconds = _seconds + 1;
-  if (_seconds / SECONDS_IN_MINUTE) {
-    _seconds = _seconds % SECONDS_IN_MINUTE;
-    [self incrementMinutes];
-  }
-  [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
+  [self pulseFromRadius:BASE toRadius:[self radiusForCurrentSeconds] baseline:secondsRadius completion:^(BOOL finished) {
+//    _seconds = _seconds + 1;
+    if (_seconds / SECONDS_IN_MINUTE) {
+      _seconds = _seconds % SECONDS_IN_MINUTE;
+      [self incrementMinutes];
+    }
+    [_secondsLabel setText:[NSString stringWithFormat:@"%i",_seconds]];
+  }];
 }
 
 - (void)incrementMinutes {
   _minutes = _minutes + 1;
-  if (_minutes / MINUTES_IN_HOUR) {
-    _minutes = _minutes % MINUTES_IN_HOUR;
-    [self incrementHours];
-  }
+  [self pulseFromRadius:secondsRadius+BORDER_WIDTH toRadius:[self radiusForCurrentMinutes] baseline:minutesRadius completion:^(BOOL finished) {
+//    _minutes = _minutes + 1;
+    if (_minutes / MINUTES_IN_HOUR) {
+      _minutes = _minutes % MINUTES_IN_HOUR;
+      [self incrementHours];
+    }
+  }];
 }
 
 - (void)incrementHours {
   _hours = _hours + 1;
-  if (_hours / HOURS_IN_DAY) {
-    _hours = _hours % HOURS_IN_DAY;
-  }
+  [self pulseFromRadius:minutesRadius+BORDER_WIDTH toRadius:[self radiusForCurrentHours] baseline:clockRadius completion:^(BOOL finished){
+//    _hours = _hours + 1;
+    if (_hours / HOURS_IN_DAY) {
+      _hours = _hours % HOURS_IN_DAY;
+    }
+  }];
 }
 
 - (void)setHours:(NSUInteger)hours minutes:(NSUInteger)minutes seconds:(NSUInteger)seconds {
@@ -136,11 +145,11 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
   NSLog(@"Drawing! %i:%i:%i",_hours,_minutes,_seconds);
   // Needs to be in this order (to avoid drawing overlaps)
   [self drawBorderAtRadiusLocation:clockRadius];
-  [self drawCircleWithOuterRadius:clockRadius innerRadius:(clockRadius - (_hours * HOUR_SCALE))];
+  [self drawCircleWithOuterRadius:clockRadius innerRadius:[self radiusForCurrentHours]];
   [self drawBorderAtRadiusLocation:minutesRadius];
-  [self drawCircleWithOuterRadius:minutesRadius innerRadius:(minutesRadius - (_minutes * MINUTE_SCALE))];
+  [self drawCircleWithOuterRadius:minutesRadius innerRadius:[self radiusForCurrentMinutes]];
   [self drawBorderAtRadiusLocation:secondsRadius];
-  [self drawCircleWithOuterRadius:secondsRadius innerRadius:(secondsRadius - (_seconds * SECOND_SCALE))];
+  [self drawCircleWithOuterRadius:secondsRadius innerRadius:[self radiusForCurrentSeconds]];
 }
 
 - (void)drawCircleWithOuterRadius:(CGFloat)outer innerRadius:(CGFloat)inner {
@@ -164,6 +173,40 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
   UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:[self rectForRadius:radius]];
   [color set];
   [circle fill];
+}
+
+- (CGFloat)radiusForCurrentSeconds {
+  return (secondsRadius - (_seconds * SECOND_SCALE));
+}
+
+- (CGFloat)radiusForCurrentMinutes {
+  return (minutesRadius - (_minutes * MINUTE_SCALE));
+}
+
+- (CGFloat)radiusForCurrentHours {
+  return (clockRadius - (_hours * HOUR_SCALE));
+}
+
+- (void)pulseFromRadius:(CGFloat)beginRadius toRadius:(CGFloat)endRadius baseline:(CGFloat)baseline completion:(void (^)(BOOL finished))completion {
+  CGFloat beginScale = [self scaleForRadius:beginRadius];
+  CGFloat endScale = [self scaleForRadius:endRadius];
+  [_pulse setTransform:CGAffineTransformMakeScale(beginScale, beginScale)];
+  [_pulse setHidden:NO];
+  [UIView animateWithDuration:[self durationOfAnimationFrom:beginRadius to:endRadius baseline:baseline] animations:^{
+    [_pulse setTransform:CGAffineTransformMakeScale(endScale, endScale)];
+  } completion:^(BOOL finished){
+    [_pulse setHidden:YES];
+    [completion invoke];
+  }];
+}
+
+- (NSTimeInterval)durationOfAnimationFrom:(CGFloat)beginRadius to:(CGFloat)endRadius baseline:(CGFloat)baseline {
+  return (endRadius - beginRadius)/(baseline-beginRadius);
+}
+
+- (CGFloat)scaleForRadius:(CGFloat)radius {
+  // Assumes 1 is the scale for 'clockRadius'
+  return radius/clockRadius;
 }
 
 - (CGRect)rectForRadius:(CGFloat)radius {
