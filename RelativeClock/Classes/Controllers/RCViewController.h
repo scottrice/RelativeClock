@@ -14,4 +14,7 @@
   NSTimer *_timer;
 }
 
+- (void)pause;
+- (void)start;
+
 @end

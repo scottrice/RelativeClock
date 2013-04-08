@@ -24,6 +24,8 @@
 		E65F3DAD1710C24500505EC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E65F3DAB1710C24500505EC6 /* InfoPlist.strings */; };
 		E65F3DB01710C24500505EC6 /* RelativeClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E65F3DAF1710C24500505EC6 /* RelativeClockTests.m */; };
 		E65F3DC31710C30F00505EC6 /* RCClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = E65F3DC21710C30F00505EC6 /* RCClockView.m */; };
+		E66316F41712645600D6CB9E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E66316F31712645600D6CB9E /* Icon.png */; };
+		E66316F6171264CB00D6CB9E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E66316F5171264CB00D6CB9E /* Icon@2x.png */; };
 		E66E1A971710E78F002698AB /* RCPulseView.h in Sources */ = {isa = PBXBuildFile; fileRef = E66E1A951710E78F002698AB /* RCPulseView.h */; };
 		E66E1A981710E78F002698AB /* RCPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E66E1A961710E78F002698AB /* RCPulseView.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		E65F3DAF1710C24500505EC6 /* RelativeClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelativeClockTests.m; sourceTree = "<group>"; };
 		E65F3DC11710C30F00505EC6 /* RCClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCClockView.h; path = Classes/Views/RCClockView.h; sourceTree = "<group>"; };
 		E65F3DC21710C30F00505EC6 /* RCClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCClockView.m; path = Classes/Views/RCClockView.m; sourceTree = "<group>"; };
+		E66316F31712645600D6CB9E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		E66316F5171264CB00D6CB9E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		E66E1A951710E78F002698AB /* RCPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj; name = RCPulseView.h; path = Classes/Views/RCPulseView.h; sourceTree = "<group>"; };
 		E66E1A961710E78F002698AB /* RCPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPulseView.m; path = Classes/Views/RCPulseView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,8 @@
 		E65F3D851710C24500505EC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E66316F5171264CB00D6CB9E /* Icon@2x.png */,
+				E66316F31712645600D6CB9E /* Icon.png */,
 				E65F3D991710C24500505EC6 /* RCViewController.xib */,
 				E65F3D861710C24500505EC6 /* RelativeClock-Info.plist */,
 				E65F3D871710C24500505EC6 /* InfoPlist.strings */,
@@ -280,6 +286,8 @@
 				E65F3D931710C24500505EC6 /* Default@2x.png in Resources */,
 				E65F3D951710C24500505EC6 /* Default-568h@2x.png in Resources */,
 				E65F3D9B1710C24500505EC6 /* RCViewController.xib in Resources */,
+				E66316F41712645600D6CB9E /* Icon.png in Resources */,
+				E66316F6171264CB00D6CB9E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

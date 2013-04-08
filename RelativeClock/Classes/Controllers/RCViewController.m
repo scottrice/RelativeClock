@@ -19,16 +19,27 @@
   [super viewDidLoad];
   _clock = [[RCClockView alloc] initWithFrame:[[self view] bounds]];
   [[self view] addSubview:_clock];
-  // 4/6/2013 5:29:59PM
-//  NSDate *staticTime = [NSDate dateWithTimeIntervalSince1970:1365287399];
-//  [_clock setTimeFromDate:staticTime];
-  [_clock setCurrentTime];
-  _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
+  [self start];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)start {
+  if (!_timer) {
+    [_clock setCurrentTime];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
+  }
+  // 4/6/2013 5:29:59PM
+  //  NSDate *staticTime = [NSDate dateWithTimeIntervalSince1970:1365287399];
+  //  [_clock setTimeFromDate:staticTime];
 }
 
 - (void)timerDidFire:(NSTimer *)timer {
   [_clock tick];
+}
+
+- (void)pause {
+  [_timer invalidate];
+  _timer = nil;
 }
 
 - (void)didReceiveMemoryWarning
