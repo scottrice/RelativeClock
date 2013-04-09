@@ -44,9 +44,7 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
       [_secondsLabel setTextAlignment:NSTextAlignmentCenter];
       [_secondsLabel setBackgroundColor:[UIColor clearColor]];
       [_secondsLabel setTextColor:[UIColor whiteColor]];
-      CGPoint center = [self center];
-      center.y -= 1;
-      [_secondsLabel setCenter:center];
+      [_secondsLabel setCenter:[self center]];
       [_secondsLabel setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:17.0]];
       [self addSubview:_secondsLabel];
       // These need to come after the _pulse initialization so that setRingColor
