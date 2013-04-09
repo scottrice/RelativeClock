@@ -142,7 +142,9 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
   // Drawing code
+#if DEBUG
   NSLog(@"Drawing! %i:%i:%i",_hours,_minutes,_seconds);
+#endif
   // Needs to be in this order (to avoid drawing overlaps)
   [self drawBorderAtRadiusLocation:clockRadius];
   [self drawCircleWithOuterRadius:clockRadius innerRadius:[self radiusForCurrentHours]];
