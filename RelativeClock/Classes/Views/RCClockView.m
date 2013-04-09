@@ -44,12 +44,15 @@ static const NSUInteger clockRadius = minutesRadius + BORDER_WIDTH + (HOURS_IN_D
       [_secondsLabel setTextAlignment:NSTextAlignmentCenter];
       [_secondsLabel setBackgroundColor:[UIColor clearColor]];
       [_secondsLabel setTextColor:[UIColor whiteColor]];
-      [_secondsLabel setCenter:[self center]];
+      CGPoint center = [self center];
+      center.y -= 1;
+      [_secondsLabel setCenter:center];
+      [_secondsLabel setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:17.0]];
       [self addSubview:_secondsLabel];
       // These need to come after the _pulse initialization so that setRingColor
       // sets the color of _pulse as well
       [self setRingColor:[UIColor whiteColor]];
-      [self setBorderColor:[UIColor redColor]];
+      [self setBorderColor:[UIColor colorWithRed:(0/255.0) green:(171/255.0) blue:(226/255.0) alpha:1]];
       [self setBackgroundColor:[UIColor blackColor]];
       
       [self addSubview:_pulse];

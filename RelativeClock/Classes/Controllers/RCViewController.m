@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [[self view] setFrame:[[UIScreen mainScreen] bounds]];
   _clock = [[RCClockView alloc] initWithFrame:[[self view] bounds]];
   [[self view] addSubview:_clock];
   [self start];
